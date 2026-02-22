@@ -1,0 +1,482 @@
+@use 'mixins.scss' as mx;
+
+
+//variables
+
+$gold: #D5966C;
+$black: #151515;
+$gray: #444444;
+$principal-font: "Big Shoulders", sans-serif;
+$secondary-font: "Outfit", sans-serif;
+
+/* ==========================================
+ESTILOS GLOBALES 
+========================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $principal-font;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: $secondary-font;
+    color: $gray;
+}
+
+footer {
+    
+    display: flex;
+    box-sizing: content-box;
+    flex-direction: column;
+    padding: 48px 32px;
+    justify-content: space-between;
+
+    img.logo {
+        width: 150px;
+        
+    }
+    p {
+        font-weight: 400;
+        line-height: 26px;
+        font-size: 16px;
+        margin: 38px 0;
+    }
+
+    img.social + img.social {
+        margin-left: 20px;
+    }
+
+    @include mx.breakpoint(tablet) {
+
+        display: flex;
+        flex-direction: row;
+        box-sizing: content-box;
+        gap: 64px;
+        align-items: center;
+
+        p {
+            width: 40%;
+            margin-right: 30px;
+        }
+    }
+    @include mx.breakpoint(tablethorizontal) {
+        padding: 80px 160px;
+    }
+}
+
+div.btn {
+
+    display: inline-flex; // Para que el botón no ocupe todo el ancho de la pantalla
+    margin: 0 15px;
+    align-items: stretch; // Hace que 'a' e 'img' tengan siempre la misma altura
+    cursor: pointer;
+
+    a {
+        background-color: $black;
+        font-weight: 700;
+        color: white;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        text-decoration: none;
+        padding: 24px 35px 24px 32px;
+        font-family: $principal-font;
+        letter-spacing: 3px;
+        display: flex;
+        align-items: center;
+        transition: background-color 0.3s ease; // Animación suave
+    }
+
+    img {
+        background-color: $gold;
+        padding: 20px;
+        display: block;
+        height: auto; 
+        max-height: 100%; // Evita que la imagen deforme el botón
+        transition: background-color 0.3s ease;
+    }
+
+    // EL TRUCO: Cuando el DIV recibe hover, cambian los hijos
+    &:hover {
+        a {
+            background-color: $gold;
+        }
+        img {
+            background-color: $black;
+        }
+    }
+}
+
+/* ==========================================
+PÁGINA: HOME
+========================================== */
+
+body.page-home {
+    
+    header {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: start;
+        width: 100%;
+        margin-bottom: 100px;
+        
+        .img-container {
+            
+            width: 100%;
+            height: 250px;
+    
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+        }
+        
+        h1 {
+            margin: 10px 15px;
+            font-size: 4.3rem;
+            width: 77%;
+            font-weight: 900;
+        }
+    
+        p {
+            width: 90%;
+            margin: 0 15px 20px 15px;
+            font-size: 1.2rem;
+            line-height: 1.8rem;   
+        }
+
+        @include mx.breakpoint(tablet) {
+            
+            .img-container {
+                width: 60%;
+                height: 700px;
+                position: relative;
+            }
+
+            .hero-content {
+                position: absolute;
+                top: 12%;
+                left: 50%;
+                color: white;
+                width: 50%;
+
+                h1 {
+                    color: black;
+                    width: 85%;
+                    margin-bottom: 40px;
+                }
+                p {
+                    margin-bottom: 48px;
+                }
+            }
+        }
+
+        @include mx.breakpoint(tablethorizontal) {
+
+            .img-container {
+
+                margin: 0 auto;
+                width: 40%;
+                position: relative;
+                z-index: 0;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: -100%;
+                    width: 100%;
+                    height: 100%;
+                    background: $black;
+                    pointer-events: none;
+                    z-index: 1;
+                }
+            }
+            .hero-content {
+                position: absolute;
+                top: 20%;
+                left: 10%;
+                color: white;
+                width: 80%;
+                display: flex;
+                justify-content: space-between;
+                box-sizing: border-box;
+
+                h1 {
+                    color: white;
+                    width: 325px;
+                    margin-bottom: 40px;
+                }
+                p {
+                    width: 300px;
+                }
+            }
+        }
+    }
+
+    main {
+        display: flex;
+        flex-direction: column;
+        margin: 0 15px 100px 15px;
+        gap: 15px;
+        
+        .img-container {
+    
+            &__1 {
+                width: 100%;
+                height: 400px;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: 45% 0%;
+                }
+            }
+            &__2 {
+                width: 100%;
+                height: auto;
+    
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            &__3 {
+                width: 100%;
+                height: 250px;
+                
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+            }
+        }
+    
+        .content {
+            
+            &__1 {
+                
+                
+                h2 {
+                    font-size: 3rem;
+                    margin: 20px 0;
+                    line-height: 2.8rem;
+                }
+                p {
+                    font-size: 1.2rem;
+                    line-height: 1.8rem;
+                    font-weight: 300;
+                }
+            }
+            
+            &__2 {
+                
+                box-sizing: content-box;
+                padding: 48px 24px 47px 24px;
+                background-color: black;
+    
+                h2 {
+                    color: white;
+                    font-size: 3.4rem;
+                    margin: 0 0 24px 0;
+                    line-height: 2.9rem;
+                }
+    
+                p {
+                    margin: 0;
+                    color: white;
+                    font-size: 18px;
+                    font-weight: 300;
+                    line-height: 28px;
+                }
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        @include mx.breakpoint(tablet) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            
+            .img-container {
+
+                &__1 {
+                    width: 62%;
+                    height: 400px;
+                }
+                &__2 {
+                    width: 55%;
+                    height: 715px;
+                }
+                &__3 {
+                    width: 100%;
+                    height: 300px;
+                }
+        
+            }
+
+            .content {
+                
+                &__1 {
+                    order: -1;
+                    width: 35%;
+                    h2 {
+                        padding-right: 54px;
+                    }
+                    p {
+                        padding-right: 24px;
+                    }
+                }
+                &__2 {
+                    width: 100%;
+                    height: 400px;
+                    box-sizing: border-box;
+                }
+            }
+            .container {
+                width: 42%;
+            }
+        }
+
+        @include mx.breakpoint(tablethorizontal) {
+            margin: 0 160px 100px 160px;
+        }
+    }
+    
+    footer {
+    
+        background: black;
+
+        p {
+            color: white;
+        }
+    
+    }
+}
+
+/* ==========================================
+PÁGINA: LOCATION
+========================================== */
+
+body.page-location {
+
+    header {
+
+        
+        .img-container {
+            position: relative;
+            width: 100%;
+            height: 550px;
+            
+            img.map {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+            }
+            
+            div.btn {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                margin: 0;
+                
+            }
+        }
+        @include mx.breakpoint(tablet) {
+            .img-container {
+                height: 600px;
+                
+                div.btn {
+                    margin-left: 40px;
+                }
+            }
+        }
+
+        @include mx.breakpoint(tablethorizontal) {
+            .img-container { 
+                div.btn {
+                    margin-left: 160px;
+                }
+            }    
+        }
+    }
+    main {
+        background: black;
+        padding: 48px 16px 56px 16px;
+        box-sizing: content-box;
+
+        h1 {
+            color: white;
+            margin: 0 0 48px 0;
+            font-size: 3.3rem;
+        }
+
+        h2 {
+            color: $gold;
+            font-size: 2rem;
+        }
+
+        span {
+            display: block;
+            color: white;
+            font-size: 18px;
+            font-family: $secondary-font;
+        }
+        span:first-of-type, :nth-of-type(2) {
+            margin-bottom: 4px;
+        }
+
+        p {
+            color: white;
+            font-size: 18px;
+            line-height: 28px;
+            font-weight: 400;
+            margin-top: 20px;
+        }
+
+        @include mx.breakpoint(tablet) {
+
+            padding: 48px 32px 56px 32px;
+            display: flex;
+            flex-direction: row;
+            box-sizing: content-box;
+            gap: 68px;
+
+            h2 {
+                margin-top: 0;
+            }
+        }
+        @include mx.breakpoint(tablethorizontal) {
+
+            padding: 104px 160px 128px 160px;
+            gap: 350px;
+
+        }
+    }
+
+    footer {
+    
+        background: $gold;
+
+        p {
+            color: black;
+        }
+    }
+}
