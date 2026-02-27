@@ -17,8 +17,18 @@ Este proyecto se centra en crear un sitio web responsive para una galería de ar
 ---
 
 <div align="center">
-  <img src="img/ModernArtGallery.png" alt="vista previa" width="1000px" height="500px"/>
+  <img src="ModernArtGallery.png" alt="vista previa" width="1000px" height="500px"/>
 </div>
+<br>
+<p align="center">
+   <a href="/">
+      <img src="https://img.shields.io/badge/-Ver_Codigo-black?style=for-the-badge" alt="badge">
+   </a>
+   
+   <a href="https://savege-khepri.github.io/modern_art_gallery/">
+      <img src="https://img.shields.io/badge/-Ver_Página-black?style=for-the-badge" alt="badge">
+   </a>
+</p>
 
 ---
 
